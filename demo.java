@@ -1,6 +1,6 @@
 import java.util.*;
 
-class HelloWorld{
+class demo{
     public static void main(String args[]){
 
         System.out.print("Hello World");
@@ -8,4 +8,6 @@ class HelloWorld{
         int a = sc.nextInt();
         System.out.print(a);
     }
-}
+
+} 
+// java demo < input.txt > output.txt

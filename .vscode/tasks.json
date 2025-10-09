@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile and Run Java",
+      "type": "shell",
+      "command": "javac ${file} && java ${fileBasenameNoExtension} < input.txt > output.txt",
+      "options": {
+        "shell": {
+          "executable": "cmd.exe"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
+
+
+
+
+//previous one default by vscode
+// {
+//     // See https://go.microsoft.com/fwlink/?LinkId=733558
+//     // for the documentation about the tasks.json format
+//     "version": "2.0.0",
+//     "tasks": [
+//         {
+//             "label": "echo",
+//             "type": "shell",
+//             "command": "echo Hello"
+//         }
+//     ]
+// }
