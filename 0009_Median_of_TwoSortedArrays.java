@@ -6,7 +6,6 @@ class Median_of_TwoSortedArrays {
         double ans = findMedianSortedArrays(a, b);
         System.out.println(ans);
     }
-
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         double result = 0;
         int [] a = new int[nums1.length + nums2.length ];
@@ -56,9 +55,6 @@ class Median_of_TwoSortedArrays {
             int e = a.length/2;
             result = a[e];
         }
-
-
         return result;
-
     }
 }
