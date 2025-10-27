@@ -9,8 +9,6 @@ class Length_of_Last_Word {
         int ans = lengthOfLastWord(s);
         System.out.println("\n"+ans+"\n");
     }
-
-
     static int lengthOfLastWord(String s) {
 
         int ans=0;
@@ -19,5 +17,4 @@ class Length_of_Last_Word {
         ans = a.length();
         return ans;
     }
-
 }
