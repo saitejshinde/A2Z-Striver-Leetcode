@@ -10,12 +10,9 @@ import java.util.Scanner;
 
             System.out.println("Want to continue");
             a = sc.nextInt();
-            System.out.println("Enter the Number ");
-
+            System.out.println("Enter Number ");
             int b = sc.nextInt();
-
             System.out.println(mySqrt(b));
-
         }
     }
 
