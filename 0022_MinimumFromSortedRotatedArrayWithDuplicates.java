@@ -5,8 +5,6 @@ class MinimumFromSortedRotatedArrayWithDuplicates {
         Scanner sc = new  Scanner(System.in);
         int []a = { 7,8,9,10,1,2,3,4 };
         System.out.println(findMin(a));
-
-
     }
 
     public static int findMin(int[] nums) {
@@ -21,15 +19,10 @@ class MinimumFromSortedRotatedArrayWithDuplicates {
         while(l<=r){
             
             int mid =(l+r)/2;
-
-            
-
             if(nums[l] < nums[mid]){
 
                     min = Math.min(min, nums[l]);
                     l = mid+1;
-                
-            
             }
             else if(nums[l] > nums[mid]) {
                 min = Math.min(min, nums[mid]);
