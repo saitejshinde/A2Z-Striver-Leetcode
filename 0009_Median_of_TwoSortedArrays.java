@@ -7,54 +7,85 @@ class Median_of_TwoSortedArrays {
         System.out.println(ans);
     }
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        double result = 0;
-        int [] a = new int[nums1.length + nums2.length ];
-        int l = a.length ;
-        int n1 = 0 , n2 = 0; 
+
+        // double result = 0;
+        // int [] a = new int[nums1.length + nums2.length ];
+        // int l = a.length ;
+        // int n1 = 0 , n2 = 0; 
 
 
-        for(int i = 0; i<l ; i++){
+        // for(int i = 0; i<l ; i++){
 
-             if(n1 >= nums1.length && n2 < nums2.length){
-                a[i] = nums2[n2];
-                n2++;
-            }
-            else if (n2 >= nums2.length  && n1 < nums1.length ){
-                a[i] = nums1[n1];
-                n1++;
-            }
+        //      if(n1 >= nums1.length && n2 < nums2.length){
+        //         a[i] = nums2[n2];
+        //         n2++;
+        //     }
+        //     else if (n2 >= nums2.length  && n1 < nums1.length ){
+        //         a[i] = nums1[n1];
+        //         n1++;
+        //     }
 
-            if((n1 <  nums1.length) && (n2 < nums2.length)){
-                if(nums1[n1] < nums2[n2]){
-                    a[i] = nums1[n1];
-                    n1++;
-                }
-                else if(nums1[n1] > nums2[n2]){
-                    a[i] = nums2[n2];
-                    n2++;
-                }
-                else if(nums1[n1] == nums2[n2]){
-                    a[i] = nums1[n1] ;
-                    i++;
-                    a[i] = nums2[n2];
-                    n1++;
-                    n2++; 
-                }
-            }
+        //     if((n1 <  nums1.length) && (n2 < nums2.length)){
+        //         if(nums1[n1] < nums2[n2]){
+        //             a[i] = nums1[n1];
+        //             n1++;
+        //         }
+        //         else if(nums1[n1] > nums2[n2]){
+        //             a[i] = nums2[n2];
+        //             n2++;
+        //         }
+        //         else if(nums1[n1] == nums2[n2]){
+        //             a[i] = nums1[n1] ;
+        //             i++;
+        //             a[i] = nums2[n2];
+        //             n1++;
+        //             n2++; 
+        //         }
+        //     }
            
+        // }
+
+        // if(a.length % 2 == 0){
+        //     int e ;    
+        //     e = a.length / 2;
+        //     double sum = a[e] + a[e-1];
+        //     System.out.println(a[e] + "    e-1 = " + a[e-1] +" -- "+ sum/2);
+        //     result = (double) sum / 2;
+        // }
+        // else{
+        //     int e = a.length/2;
+        //     result = a[e];
+        // }
+        // return result;
+
+        //optimized code is below 
+
+         int n = nums1.length;
+    int m = nums2.length;
+    int total = n + m;
+
+    int i = 0, j = 0, count = 0;
+    int prev = 0, curr = 0;
+
+    // We only need to iterate until we cross the median index
+    while (count <= total / 2) {
+        prev = curr;
+
+        if (i < n && (j >= m || nums1[i] <= nums2[j])) {
+            curr = nums1[i++];
+        } else {
+            curr = nums2[j++];
         }
 
-        if(a.length % 2 == 0){
-            int e ;    
-            e = a.length / 2;
-            double sum = a[e] + a[e-1];
-            System.out.println(a[e] + "    e-1 = " + a[e-1] +" -- "+ sum/2);
-            result = (double) sum / 2;
-        }
-        else{
-            int e = a.length/2;
-            result = a[e];
-        }
-        return result;
+        count++;
+    }
+
+    // If total is odd → median is the middle number
+    if (total % 2 != 0) {
+        return curr;
+    }
+
+    // If total is even → median is average of two middle numbers
+    return (prev + curr) / 2.0;
     }
 }
